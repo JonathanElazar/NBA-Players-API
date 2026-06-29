@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import markdown
 
 app = Flask(__name__)
@@ -16,11 +16,9 @@ def internal_error(error):
 
 
 @app.route('/name/<first_name>/<last_name>')
-def get_player_by_name(first_name, last_name, amount=None):
+def get_player_by_name(first_name, last_name):
     name = first_name.lower() + " " + last_name.lower()
     matched = db[db['Name'].str.lower() == name]
-    if amount is not None:
-        matched = matched.head(int(amount))
     return matched.to_json(orient='records')
 
 @app.route('/active-players/')
