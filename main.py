@@ -62,4 +62,9 @@ def docs():
     with open('docs.md', 'r', encoding='utf-8') as f:
         return markdown.markdown(f.read(), extensions=['fenced_code', 'codehilite'])
 
-app.run("0.0.0.0", 5000)
+@app.route('/')
+def index():
+    return "Welcome to the NBA Players API! Visit /docs for API documentation. Github is https://github.com/JonathanElazar/NBA-Players-API"
+
+if __name__ == '__main__':
+    app.run("0.0.0.0", 5000)
