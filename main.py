@@ -1,8 +1,12 @@
 import pandas as pd
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import markdown
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_folder="frontend/dist/assets",  # Points to Vite's asset folder
+    template_folder="frontend/dist"       # Points to Vite's dist folder for index.html
+)
 db = pd.read_csv('NBA_PLAYERS.csv')
 
 @app.errorhandler(404)
@@ -62,9 +66,9 @@ def docs():
     with open('docs.md', 'r', encoding='utf-8') as f:
         return markdown.markdown(f.read(), extensions=['fenced_code', 'codehilite'])
 
-@app.route('/')
-def index():
-    return "Welcome to the NBA Players API! Visit /docs for API documentation. Github is https://github.com/JonathanElazar/NBA-Players-API"
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run("0.0.0.0", 5000)
