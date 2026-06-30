@@ -1,28 +1,127 @@
-The server for api usage is currently running on: https://eswzb3ycjm.localto.net/
-Just a quick note for this server it uses the localtonet free version so you might have to use localtonet-skip-warning header of any value.
-For example `curl "https://eswzb3ycjm.localto.net/name/jaylen/brown"` might cause problems but `curl -H "localtonet-skip-warning: 1" "https://eswzb3ycjm.localto.net/name/jaylen/brown"` should work better.
+# 🏀 NBA Players API
 
-# NBA Players API
-This is an api I made allowing programmers to get NBA players stats for there own projects. See the docs at https://github.com/JonathanElazar/NBA-Players-API/blob/main/docs.md 
-## Installing The Program
-### Use the following commands to install
-1. `git clone https://github.com/JonathanElazar/NBA-Players-API.git`
-2. `pip install -r requirements.txt`
+A simple REST API for retrieving NBA player statistics. This project is designed to help developers easily integrate player data into their own applications, websites, and projects.
 
-## Running The Server
-There are two ways to run the server the easiest way is with normal flask while the more secure way is with waitress.
-### Running with flask
-simply use `py main.py` on windows or `python3 main.py` on linux.
-Only use this for development purposes never for deployment.
-If you run with flask you can edit the code at the bottom
-For debuger edit
+## 📖 Documentation
+
+Full API documentation is available here:
+
+**https://github.com/JonathanElazar/NBA-Players-API/blob/main/docs.md**
+
+---
+
+# 🌐 Public API Server
+
+The public API is currently available at:
+
+**https://eswzb3ycjm.localto.net/**
+
+> **Note**
+>
+> This server is hosted using the free version of LocaltoNet. When making requests, you should include the `localtonet-skip-warning` header to bypass the LocaltoNet warning page.
+
+### Example
+
+Without the header:
+
+```bash
+curl "https://eswzb3ycjm.localto.net/name/jaylen/brown"
+```
+
+Recommended:
+
+```bash
+curl -H "localtonet-skip-warning: 1" \
+"https://eswzb3ycjm.localto.net/name/jaylen/brown"
+```
+
+---
+
+# 🚀 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/JonathanElazar/NBA-Players-API.git
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# ▶️ Running the Server
+
+There are two ways to run the API.
+
+## Option 1: Flask (Development)
+
+Run the server using Flask:
+
+### Windows
+
+```bash
+py main.py
+```
+
+### Linux/macOS
+
+```bash
+python3 main.py
+```
+
+> **Warning**
+>
+> Flask's built-in server is intended **only for development**. Do not use it in production.
+
+### Enable Debug Mode
+
+To enable Flask's debugger, change:
+
 ```python
 app.run("0.0.0.0", 5000)
 ```
+
 to:
+
 ```python
 app.run("0.0.0.0", 5000, debug=True)
 ```
-### Running with waitress
-Use `waitress-serve --host=0.0.0.0 --port=5000 main:app`
-This wont have any logs or debugger but it will securly deploy the server on port 5000.
+
+---
+
+## Option 2: Waitress (Production)
+
+For production deployments, use Waitress:
+
+```bash
+waitress-serve --host=0.0.0.0 --port=5000 main:app
+```
+
+Waitress is recommended because it is a production-ready WSGI server.
+
+**Note:**
+
+* No interactive debugger
+* No automatic code reloading
+* More secure and stable than Flask's built-in server
+
+---
+
+# 📡 Example Request
+
+```bash
+curl -H "localtonet-skip-warning: 1" \
+"https://eswzb3ycjm.localto.net/name/lebron/james"
+```
+
+---
+
+# 🤝 Contributing
+
+Contributions, bug reports, and feature requests are welcome!
+
+Feel free to open an issue or submit a pull request.
