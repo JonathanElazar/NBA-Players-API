@@ -1,4 +1,6 @@
 The server for api usage is currently running on: https://eswzb3ycjm.localto.net/
+Just a quick note for this server it uses the localtonet free version so you might have to use localtonet-skip-warning header of any value.
+For example `curl "https://eswzb3ycjm.localto.net/name/jaylen/brown"` might cause problems but `curl -H "localtonet-skip-warning: 1" "https://eswzb3ycjm.localto.net/name/jaylen/brown"` should work better.
 
 # NBA Players API
 This is an api I made allowing programmers to get NBA players stats for there own projects. See the docs at https://github.com/JonathanElazar/NBA-Players-API/blob/main/docs.md 
