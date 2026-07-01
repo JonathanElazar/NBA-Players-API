@@ -36,7 +36,7 @@ def internal_error(error):
 def get_player_by_name(first_name, last_name):
     name = first_name.lower() + " " + last_name.lower()
     matched = db[db['Name'].str.lower() == name]
-    return matched.to_json(orient='records')
+    return jsonify(matched.to_dict(orient='records'))
 
 @app.route('/active-players/')
 @app.route('/active-players/<amount>')
@@ -45,7 +45,7 @@ def get_players_by_active(amount=None):
     if amount is not None:
         matched = matched.head(int(amount))
     
-    return matched.to_json(orient='records')
+    return jsonify(matched.to_dict(orient='records'))
 
 @app.route('/players/top/pts/')
 @app.route('/players/top/pts/<amount>')
@@ -54,7 +54,7 @@ def get_top_scorers(amount=None):
     if amount is not None:
         top_amount = top_amount.head(int(amount))
     
-    return top_amount.to_json(orient='records')
+    return jsonify(top_amount.to_dict(orient='records'))
 
 @app.route('/players/')
 @app.route('/players/<amount>')
@@ -63,7 +63,7 @@ def get_all_players(amount=None):
     if amount is not None:
         top_amount = top_amount.head(int(amount))
     
-    return top_amount.to_json(orient='records')
+    return jsonify(top_amount.to_dict(orient='records'))
 
 @app.route('/report_issue', methods=['POST'])
 def report_issue():
