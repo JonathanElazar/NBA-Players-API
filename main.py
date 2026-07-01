@@ -1,12 +1,25 @@
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import markdown
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+
+needs_ratelimiting = False  # Set to True to enable rate limiting, False to disable it
 
 app = Flask(
     __name__,
-    static_folder="frontend/dist/assets",  # Points to Vite's asset folder
-    template_folder="frontend/dist"       # Points to Vite's dist folder for index.html
+    static_folder="frontend/dist/assets",
+    template_folder="frontend/dist"
 )
+
+if needs_ratelimiting:
+    limiter = Limiter(
+        key_func=get_remote_address,
+        app=app,
+        default_limits=["100 per hour"]
+    )
+
 db = pd.read_csv('NBA_PLAYERS.csv')
 
 @app.errorhandler(404)
