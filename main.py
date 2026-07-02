@@ -5,7 +5,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 
-needs_ratelimiting = False  # Set to True to enable rate limiting, False to disable it
+needs_ratelimiting = True  # Set to True to enable rate limiting, False to disable it
 
 app = Flask(
     __name__,
