@@ -20,10 +20,10 @@ function App() {
         <p>Feel free to do a simple example request to the API with the following command:</p>
 
         <div className="terminal">
-          <div className="line">$ curl "https://nba-players-api.onrender.com/name/jaylen/brown"</div>
+          <div className="line">$ curl "https://nba-players-api.vercel.app/name/jaylen/brown"</div>
         </div>
 
-        <p>Or you can just go to <a href="https://nba-players-api.onrender.com/name/jaylen/brown" target="_blank" rel="noopener noreferrer">https://nba-players-api.onrender.com/name/jaylen/brown</a> to view the response in your browser.</p>
+        <p>Or you can just go to <a href="https://nba-players-api.vercel.app/name/jaylen/brown" target="_blank" rel="noopener noreferrer">https://nba-players-api.vercel.app/name/jaylen/brown</a> to view the response in your browser.</p>
         <p>If you would like to use this API in your own project, please refer to the documentation or github for more information.</p>
       </div>
     </div>

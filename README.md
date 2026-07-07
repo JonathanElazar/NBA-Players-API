@@ -1,6 +1,6 @@
 # 🏀 NBA Players API
 
-NBA Players API is a REST API for retrieving data about NBA players. Try it at https://nba-players-api.onrender.com/
+NBA Players API is a REST API for retrieving data about NBA players. Try it at https://nba-players-api.vercel.app/
 
 <img width="633" height="269" alt="image" src="https://github.com/user-attachments/assets/572afc28-0f27-43ee-b2cf-bb88aeb9a374" />
 
@@ -9,7 +9,7 @@ NBA Players API is a REST API for retrieving data about NBA players. Try it at h
 To get info about any player, lets say Michael Jordan you can use the command
 
 ```bash
-curl "https://nba-players-api.onrender.com/name/Michael/Jordan"
+curl "https://nba-players-api.vercel.app/name/Michael/Jordan"
 ```
 
 This should respond json info about the player if so than congradulations you just used the API for info about Michael Jordan. Make sure you check out the docs at https://github.com/JonathanElazar/NBA-Players-API/blob/main/docs.md
