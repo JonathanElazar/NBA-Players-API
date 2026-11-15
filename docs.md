@@ -1,6 +1,6 @@
 # NBA Players API Docs
 
-Just a quick FYI this API only contains players andd stats as of the 2025-2026 NBA season.
+Just a quick FYI this API only contains players and stats as of November of the 2026-2027 NBA season.
 
 ## Search by Player Name
 
@@ -328,4 +328,5 @@ and the server responds with
 { "status": "success", "message": "Issue recorded" }
 ```
 
-than you have successfully sent an issue
+than you have successfully sent an issue.
+Although this is a way to report an issue it is much more likely to be noticed if you report it through github.
